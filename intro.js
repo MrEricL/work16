@@ -3,8 +3,16 @@ var listItem = document.getElementsByTagName("li");
 var header = document.getElementById('h');
 var index = 8;
 
-
 b.addEventListener('click', add_to_list);
+
+//fib stuff
+var fiblist = document.getElementById('fiblist');
+var n1=0;
+var n2=1;
+
+
+button2.addEventListener('click', fib);
+
 
 //Functions
 function add_to_list(){
@@ -39,4 +47,16 @@ for (i = 0; i < listItem.length; i ++) {
     listItem[i].addEventListener('mouseover', change_header);
 	listItem[i].addEventListener('mouseleave', revert_header);
 	listItem[i].addEventListener('click', remove_from_list);
+};
+
+function fib(){
+    var n1temp = n1;
+    var n2temp = n2;
+    var node = document.createElement('li');
+    var textnode = document.createTextNode(n2);
+    node.appendChild(textnode);
+    fiblist.appendChild(node);
+    n1=n2temp;
+    n2=n1temp+n2temp;
+
 };
